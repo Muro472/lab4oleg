@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import MainStack from 'src/components/stacks/MainStack.vue';
+import RootStack from 'src/components/stacks/RootStack.vue';
 
 import { watch } from 'vue';
 import { useRouter } from 'vue-router';
@@ -9,11 +9,11 @@ const router = useRouter();
 watch(
   () => router.currentRoute.value.name,
   (val) => {
-    console.log('Home');
+    console.log(val);
   }
 );
 </script>
 
 <template>
-  <MainStack />
+  <RootStack />
 </template>

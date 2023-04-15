@@ -8,16 +8,9 @@ const routes: RouteRecordRaw[] = [
     name: RouterNames.ROOT,
     redirect: RouterLinks.LIST_OF_ITEMS,
     components: {
-      MainStack: () => import('components/stacks/LoggedUserStack.vue'),
+      MainRootStack: () => import('components/stacks/MainStack.vue'),
     },
     children: [
-      {
-        path: RouterLinks.LIST_OF_ITEMS,
-        name: RouterNames.LIST_OF_ITEMS,
-        components: {
-          LoggedUserMainStack: () => import('pages/ListOfItemsView.vue'),
-        },
-      },
       {
         path: RouterLinks.LIST_OF_ITEMS_ITEM,
         name: RouterNames.LIST_OF_ITEMS_ITEM,
@@ -32,14 +25,14 @@ const routes: RouteRecordRaw[] = [
           LoggedUserMainStack: () => import('pages/OrderView.vue'),
         },
       },
+      {
+        path: RouterLinks.LIST_OF_ITEMS,
+        name: RouterNames.LIST_OF_ITEMS,
+        components: {
+          MainStack: () => import('pages/ListOfItemsView.vue'),
+        },
+      },
     ],
-  },
-  {
-    path: RouterLinks.LOGIN,
-    name: RouterNames.LOGIN,
-    components: {
-      MainStack: () => import('pages/LogInView.vue'),
-    },
   },
 
   // Always leave this as last one,
