@@ -10,6 +10,13 @@ class MainService extends ApiService {
   public getItems(page: number, pageSize: number): GetItems {
     return this.sendRequest<GetItems>('GET', ItemsJSON, page, pageSize);
   }
+  public findItemsById(id: string[]): GetItems {
+    const data = ItemsJSON.filter((item) => id.includes(item.id));
+    return {
+      content: data,
+      totalPages: 1,
+    };
+  }
 }
 
 export const MainApi = new MainService();

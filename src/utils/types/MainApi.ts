@@ -5,6 +5,7 @@ export interface Item {
   price: string;
   description: string;
   imageUrl: string;
+  id: string;
 }
 
 export type GetItems = PagebleResponse<Item>;
