@@ -1,0 +1,42 @@
+.log_in_bg {
+  width: 800px;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  padding: 20px;
+}
+
+.main_layout {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+
+  &-log_in_button,
+  &-text_field_1,
+  &-text_field_2 {
+    width: 100%;
+  }
+  &-text_field_1,
+  &-text_field_2 {
+    margin-bottom: 20px;
+  }
+
+  // &-checkbox {
+  //   display: flex;
+  //   justify-content: flex-end;
+  // }
+
+  // &-corporate_partner_button {
+  //   display: flex;
+  //   align-items: center;
+  // }
+
+  &-corporate_partner_button:nth-child(0) {
+    margin-left: 10px;
+  }
+}
+
+.q_button {
+  width: 100%;
+}

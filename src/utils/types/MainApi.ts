@@ -14,6 +14,8 @@ export interface User {
   userName: string;
   email: string;
   password: string;
+  id: string;
+  avatar: string;
 }
 
 export type GetUsers = PagebleResponse<User>;
