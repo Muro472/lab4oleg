@@ -11,6 +11,13 @@ const state = reactive({
   count: props.item.count,
 });
 
+watch(
+  () => props.item.count,
+  (val) => {
+    state.count = val;
+  }
+);
+
 const emit = defineEmits<{
   (event: 'newCount', val: number): void;
 }>();

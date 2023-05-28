@@ -67,11 +67,22 @@ const drop = (event: DragEvent) => {
 
   const item = state.items.find((item) => item.id === id);
 
+  const isAdded = basket.items.some((item) => item.item.id === id);
+
   if (item) {
-    basket.items.push({
-      item: item,
-      count: 1,
-    });
+    if (isAdded) {
+      basket.items = basket.items.map((item) => {
+        if (item.item.id === id) {
+          item.count++;
+        }
+        return item;
+      });
+    } else {
+      basket.items.push({
+        item: item,
+        count: 1,
+      });
+    }
   }
 };
 
@@ -79,6 +90,16 @@ onMounted(getData);
 </script>
 
 <template>
+  <q-page-sticky
+    v-if="basket.items.length"
+    position="bottom-right"
+    :offset="[18, 18]"
+  >
+    <div class="floatingButton">
+      Order, total:
+      {{ basket.items.reduce((acc, item) => acc + item.count, 0) }}$
+    </div>
+  </q-page-sticky>
   <ListOfItemsLayout>
     <template #basket>
       <div class="basket">
